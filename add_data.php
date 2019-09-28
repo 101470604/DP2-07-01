@@ -1,5 +1,11 @@
 <?php
 
+// Functions
+function itemExists () : bool {
+    
+    return true;
+}
+
 // MAIN BODY
 
 include 'db_connection.php';
@@ -21,4 +27,7 @@ else
     echo "Item does not exist";
 }
 
+header ('location: viewTable.html');
+exit();
+ 
 ?>
