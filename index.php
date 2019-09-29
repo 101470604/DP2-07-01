@@ -22,7 +22,7 @@
 				
 					<!-- form -->
 					
-					<form action="add_data.php" method="POST">
+					<form action="php_scripts/add_data.php" method="POST">
 						<table>
 
 							<tr>
@@ -59,7 +59,7 @@
 							</tr>								
 						</table>
 						<div class="buttons">
-								<a href="viewTable.html">	
+								<a href="viewTable.php">	
 								<input class = "button enterData" type="submit" value="Enter Data">
 								<button class="button Cancel">  Cancel </button>
 							</div>

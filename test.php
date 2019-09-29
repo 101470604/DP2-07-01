@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
+<?php
 
-    </head>
-    <body>
-        <h1>Test</h1>
-        <?php 
-            include 'db_connection.php';
-        ?>
-    </body>
-    </html>
+include "db_connection.php";
+
+initItemsTable(connectToDb());
+
+?>

@@ -23,12 +23,11 @@
 						<table>
 							<thead>
 								<tr>
-									<th>Header</th>
-									<th>Header</th>
-									<th>Header</th>
-									<th>Header</th>
-									<th>Header</th>
-									<th>Header</th>
+									<th>Sale ID</th>
+									<th>Item Name</th>
+									<th>Quantity Sold</th>
+									<th>Date Sold</th>
+									<th>Discount</th>
 									<!--Do not remove! This is for lining up the tables -->
 									<th class = "spacing" ></th>
 								</tr>
@@ -39,113 +38,9 @@
 						<table>
 							<tbody>
 		
-								<tr>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-								</tr>
-								
-								<tr>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-								</tr>
-								
-								<tr>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-								</tr>
-								
-								<tr>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-								</tr>
-								
-								<tr>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-								</tr>
-								
-								<tr>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-								</tr>
-								
-								<tr>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-								</tr>
-								
-								<tr>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-								</tr>
-																
-								<tr>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-								</tr>
-								
-								<tr>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-								</tr>
-								
-								<tr>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-								</tr>
-								
-								<tr>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-									<td> Data </td>
-								</tr>								
+								<?php
+								include "php_scripts/displaySales.php";
+								?>								
 							</tbody>
 						</table>						
 					</div>
