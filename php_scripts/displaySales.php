@@ -1,45 +1,48 @@
 <?php
-include "db_connection.php";
+	include 'php_scripts/db_connection.php';
 
-function getColumns($dbConnection)
+function getColumns()
 {
-        $query = "SELECT sales.Sale_ID, items.Product_Name, sales.Quantity_Sold, sales.Date_Sold, sales.Discount 
+
+    $db_connection = connectToDb();
+    $failed_row = 
+    '<tr>
+        <td> N/A </td>
+        <td> N/A </td>
+        <td> N/A </td>
+        <td> N/A </td>
+        <td> N/A </td>
+        <td> N/A </td>
+        <td> N/A </td>
+    </tr>';
+
+    if(!$db_connection){
+    }
+    else {
+        $sale_query = mysqli_query($db_connection, "SELECT sales.Sale_ID, sales.Item_ID, items.Product_Name, sales.Quantity_Sold, sales.Date_Sold, items.Price, sales.Discount 
         FROM sales, items 
         WHERE items.Item_ID = sales.Item_ID
-        ORDER BY Date_Sold;";
-        /*"SELECT `COLUMN_NAME` 
-        FROM `INFORMATION_SCHEMA`.`COLUMNS` 
-        WHERE `TABLE_SCHEMA`='sales_records' 
-        AND `TABLE_NAME`='sales';";*/
-    $result = mysqli_query($dbConnection, $query);
+        ORDER BY Date_Sold;");
 
-    if (empty($result))
-    {
-        // TODO ERRORS / EXCEPTIONS
-        echo "Unable to retrieve sales data.";
-    }
-    else
-    {
-        if ($result->num_rows > 0)
+
+        if (mysqli_num_rows($sale_query) == 0) 
         {
-            while ($row = $result->fetch_assoc())
-            {
-                echo "<tr>";
-                echo "<td>" . $row["Sale_ID"] . "</td>";
-                echo "<td>" . $row["Product_Name"] . "</td>";
-                echo "<td>" . $row["Quantity_Sold"] . "</td>";
-                echo "<td>" . $row["Date_Sold"] . "</td>";
-                echo "<td>" . $row["Discount"] . "</td>";
-                echo "</tr>";
+            echo $failed_row;
+        }
+        else{
+            while ($row_sale = mysqli_fetch_assoc($sale_query)){
+                
+                echo '<tr>';
+                echo '<td>' . $row_sale['Sale_ID'] . '</td>';
+                echo '<td>' . $row_sale['Item_ID'] .'</td>';
+                echo '<td>' . $row_sale['Product_Name'] .'</td>';
+                echo '<td>' . $row_sale['Price'] .'</td>';
+                echo '<td>' . $row_sale['Quantity_Sold'] .'</td>';
+                echo '<td>' . $row_sale['Date_Sold'] .'</td>';
+                echo '<td>' . $row_sale['Discount'] . ' </td> </tr>';
             }
         }
     }
 }
-
-// MAIN BODY
-$dbConnection = connectToDb();
-initItemsTable($dbConnection);
-initSalestable($dbConnection);
-getColumns($dbConnection);
 
 ?>
