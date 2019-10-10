@@ -4,8 +4,32 @@ h1
 	font-size: 2em;
 	font-weight: 300;
 	color: #6c7ae0;
-	padding-left: 20px;
+	padding-left: 10px;
 	padding-bottom: 10px;
+}
+
+label, h2
+{
+	font-size: 1.5em;
+	font-weight: 300;
+	color: #6c7ae0;
+	padding-left: 10px;
+	padding-bottom: 10px;	
+}
+
+
+
+
+form, section
+{
+	margin-top: 50px;
+	padding: 30px 20px 40px 20px;
+	border-radius: 10px;
+	overflow: hidden;
+	border-collapse:separate;
+   	border: 2px solid #6c7ae0;
+    border-radius:6px;
+    -moz-border-radius:6px;
 }
 
 body
@@ -16,7 +40,7 @@ body
 /* side margin for page */
 article
 {
-	width: 1300px;
+	width: 1200px;
 	margin: auto;
 }
 
@@ -31,18 +55,18 @@ article
 table 
 {
 	background-color: #fff;
-	width: 100%;
+	table-layout: fixed;
 }
 
-th, td {
+th, td 
+{
+	padding-top: 18px;
+	padding-bottom: 18px;
 	font-weight: unset;
-	padding-right: 10px;
 }
 
 th 
 {
-	padding-top: 18px;
-	padding-bottom: 18px;
 	font-size: 18px;
 	color: #fff;
 	line-height: 1.4;
@@ -51,13 +75,15 @@ th
 
 td
 {
-	padding-top: 18px;
-	padding-left: 18px;
-	padding-bottom: 18px;
 	font-size: 15px;
 	color: #808080;
 }
 
+th, td
+{
+	text-align: center;
+	width: 160px;
+}
 
 .table-body
 {
@@ -104,7 +130,6 @@ the same size as the scrollbar.
 
 .buttons
 {
-	margin-left:20px;
 	padding-top:30px;
 }
 .download
@@ -131,21 +156,21 @@ button > a
 }
 
 input[type=text], input[type=date], select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+	background-color: rgba(235,239,242,1);
+	color: #6c7ae0;
+	font-weight: bold;
 }
 
-input::placeholder {
-	color:grey;
-}
 
-.button
+.bottombutton
 {
 	text-decoration: none;
 	display: inline-block;
@@ -163,10 +188,34 @@ input::placeholder {
 	border: 2px solid #6c7ae0;
 }
 
+.topbutton
+{
+	float: right;
+	text-decoration: none;
+	display: inline-block;
+	border-radius: 4px;
+	background-color: #6c7ae0;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 20px;
+	padding: 10px;
+	width: 150px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+	border: 2px solid #6c7ae0;
+	margin-top: 20px;
+}
 
-
-.button:hover  {
+.bottombutton:hover, .topbutton:hover  
+{
   background-color: white; 
   color: #6c7ae0; 
   border: 2px solid #6c7ae0;
+}
+
+tbody > tr:hover
+{
+	background-color: rgba(219,231,255,1);
 }

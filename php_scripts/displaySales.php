@@ -36,10 +36,10 @@ function getColumns()
                 echo '<td>' . $row_sale['Sale_ID'] . '</td>';
                 echo '<td>' . $row_sale['Item_ID'] .'</td>';
                 echo '<td>' . $row_sale['Product_Name'] .'</td>';
-                echo '<td>' . $row_sale['Price'] .'</td>';
+                echo '<td>$' . $row_sale['Price'] .'</td>';
                 echo '<td>' . $row_sale['Quantity_Sold'] .'</td>';
                 echo '<td>' . $row_sale['Date_Sold'] .'</td>';
-                echo '<td>' . $row_sale['Discount'] . ' </td> </tr>';
+                echo '<td>' . $row_sale['Discount'] . '% </td> </tr>';
             }
         }
     }
