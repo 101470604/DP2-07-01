@@ -1,5 +1,5 @@
 <?php
-	include 'db_connection.php';
+include 'db_connection.php';
 
 function showColumns($row_sale)
 {
@@ -14,8 +14,20 @@ function showColumns($row_sale)
 	
 }
 
+function getRowAsCSV($row_sale){
+	return "\r\n" . $row_sale['Sale_ID'] . 
+			',' . $row_sale['Item_ID'] .
+			',' . $row_sale['Product_Name'] .
+			',' . $row_sale['Price'] .
+			',' . $row_sale['Quantity_Sold'] .
+			',' . $row_sale['Date_Sold'] .
+			',' . $row_sale['Discount'];
+}
+
 function getColumns()
 {
+	//Returns columns as CSV at end of function
+	$csvData = "Sale ID,Item ID,Item Name,Item Price,Quantity Sold,Date Sold,Discount";
 
     $db_connection = connectToDb();
     $failed_row = 
@@ -56,7 +68,8 @@ function getColumns()
 				echo "Cookie = view </br>";
 				while ($row_sale = mysqli_fetch_assoc($sale_query))
 				{				
-					showColumns($row_sale);		
+					showColumns($row_sale);
+					 $csvData .= getRowAsCSV($row_sale);	
 				}
 			}
 			else
@@ -75,6 +88,7 @@ function getColumns()
 						if (($current[1] == $month) && ($current[0] == $year))
 						{
 							showColumns($row_sale);
+							$csvData .= getRowAsCSV($row_sale);
 						}			
 					}
 				}
@@ -92,6 +106,7 @@ function getColumns()
 					//	if ($Date > $FirstDay && $Date < $LastDay)
 					//	{
 							showColumns($row_sale);
+							$csvData .= getRowAsCSV($row_sale);
 					//	}			
 					}
 				}
@@ -101,9 +116,9 @@ function getColumns()
 			
 			
         }
-    }
+	}
+	
+	return $csvData;
 }
-
-getColumns();
 
 ?>
