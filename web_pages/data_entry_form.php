@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if (!isset($_SESSION["loggedIn"]) || !$_SESSION["loggedIn"]){
+		header ("location: login.php");
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,15 +22,14 @@
 	<!--Table of sales data-->
 		<div class="page">
 		
-				<div>					
-					<a href="login.php"><button class="topbutton signout fa fa-lock"> Sign Out</button></a>
-					<a href="settings.php"><button class="topbutton settings fa fa-gear"> Settings</button></a> 				
-				</div>	
+			<?php 
+				include 'reuseable_fragments/toolbar.php';
+			?>
 			
 			<h1>Peoples Health Pharmacy Data Entry</h1>
 		
 			<!-- form -->
-			<form method="post" action="php_scripts/submit_data.php">
+			<form method="post" action="../php/submit_data.php">
 				<label for="item_id">Item ID</label>
 				<input type="text" id="item_id" name="item_id" placeholder="Enter the item ID.." pattern="[0-9]{1, 11}" required>
 
@@ -37,7 +43,7 @@
 				<input type="text" id="discount" name="discount" placeholder="Enter enter any applied discount (0 is a valid answer).." pattern="[0-9]{0, 5}" required>	
 			
 				<div class="buttons">						
-					<a href="viewTable.php"><button class="bottombutton Cancel fa fa-chevron-left"> Cancel</button></a>
+					<a href="view_sales_records.php"><button class="bottombutton Cancel fa fa-chevron-left"> Cancel</button></a>
 					<input type="submit" class="bottombutton button enterData fa fa-plus" value="&#xf067;  Enter Data">
 				</div>
 

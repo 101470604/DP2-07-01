@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if (!isset($_SESSION["loggedIn"]) || !$_SESSION["loggedIn"]){
+		header ("location: login.php");
+	}
+?>
+
 <html>  
 <head>  
      <meta charset="UTF-8">

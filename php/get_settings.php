@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
 	{
 		setrawcookie("View", "Weekly", time() + 86400, "/");
 	}
-	header ("location: ../viewTable.php");
+	header ("location: ../web_pages/view_sales_records.php");
 	exit();
 }
 ?>

@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if (!isset($_SESSION["loggedIn"]) || !$_SESSION["loggedIn"]){
+		header ("location: login.php");
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,15 +22,14 @@
 	<!--Table of sales data-->
 		<div class="page">
 		
-				<div>					
-					<a href="login.html"><button class="topbutton signout fa fa-lock"> Sign Out</button></a>
-					<a href="settings.html"><button class="topbutton settings fa fa-gear"> Settings</button></a> 				
-				</div>	
+			<?php 
+				include 'reuseable_fragments/toolbar.php';
+			?>
 			
 			<h1>Peoples Health Pharmacy Edit Data</h1>
 		
 			<!-- form -->
-			<form method="post" action="php_scripts/submit_data.php">
+			<form method="post" action="php/submit_data.php">
 				<label for="item_id">Item ID</label>
 				<input type="text" id="item_id" name="item_id" placeholder="Enter the item ID.." pattern="[0-9]{1, 11}" required>
 

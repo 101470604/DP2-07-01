@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if (!isset($_SESSION["loggedIn"]) || !$_SESSION["loggedIn"]){
+		header ("location: login.php");
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +28,7 @@
 			
 			<h1>Peoples Health Pharmacy Settings</h1>
 
-			<form method="post" action="php_scripts/get_settings.php">	
+			<form method="post" action="../php/get_settings.php">	
 				
 				<input type="submit" class="bottombutton button weekly fa fa-calendar" value="&#xf073;  Weekly Sales" name = 'Weekly'>
 				<input type="submit" class="bottombutton button monthly fa fa-calendar" value="&#xf073;  Monthly Sales" name = 'Monthly'>

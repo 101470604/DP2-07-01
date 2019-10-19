@@ -56,6 +56,25 @@ function initSalestable($dbConnection)
     }
 }
 
+function initAuthTable($dbConnection)
+{
+    $query = "SELECT * FROM USERAUTH LIMIT 1";
+    $result = mysqli_query($dbConnection, $query);
+    
+    if (empty($result))
+    {
+        $query = "CREATE TABLE USERAUTH ( 
+            Username varchar (30) NOT NULL PRIMARY KEY, 
+            Password varchar (30) NOT NULL
+        );";
+
+        $result = mysqli_query($dbConnection, $query);
+
+        $query = "INSERT INTO USERAUTH (Username, Password) VALUES ('admin', 'admin');";
+        $result = mysqli_query($dbConnection, $query);
+    }
+}
+
 
 // Initialize DB of items
 function populateTestData($dbConnection)
