@@ -1,16 +1,16 @@
 <?php
-	include 'php_scripts/db_connection.php';
+	include 'db_connection.php';
 
 function showColumns($row_sale)
 {
-	echo '<tr>';
-	echo '<td>' . $row_sale['Sale_ID'] . '</td>';
-	echo '<td>' . $row_sale['Item_ID'] .'</td>';
-	echo '<td>' . $row_sale['Product_Name'] .'</td>';
-	echo '<td>$' . $row_sale['Price'] .'</td>';
-	echo '<td>' . $row_sale['Quantity_Sold'] .'</td>';
-	echo '<td>' . $row_sale['Date_Sold'] .'</td>';
-	echo '<td>' . $row_sale['Discount'] . '% </td> </tr>';
+	echo '<tr>
+	<td>' . $row_sale['Sale_ID'] . '</td>
+	<td>' . $row_sale['Item_ID'] .'</td>
+	<td>' . $row_sale['Product_Name'] .'</td>
+	<td>$' . $row_sale['Price'] .'</td>
+	<td>' . $row_sale['Quantity_Sold'] .'</td>
+	<td>' . $row_sale['Date_Sold'] .'</td>
+	<td>' . $row_sale['Discount'] . '% </td> </tr>';
 	
 }
 
@@ -103,5 +103,7 @@ function getColumns()
         }
     }
 }
+
+getColumns();
 
 ?>

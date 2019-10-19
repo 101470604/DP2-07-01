@@ -4,7 +4,7 @@
 	<meta name="author" content="Aaron Douglas"  />
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">		
-	<link href = "styles/layout.css" rel="stylesheet"/>
+	<link href = "../styles/layout.css" rel="stylesheet"/>
 	<link rel="icon" href="phpico.png">
 	
 	<title> Peoples Health Pharmacy </title>

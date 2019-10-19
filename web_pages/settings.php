@@ -4,7 +4,7 @@
 	<meta name="author" content="Aaron Douglas"  />
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">		
-	<link href = "styles/layout.css" rel="stylesheet"/>
+	<link href = "../styles/layout.css" rel="stylesheet"/>
 	<link rel="icon" href="phpico.png">
 	
 	<title>  Peoples Health Pharmacy </title>
@@ -15,8 +15,9 @@
 	<!--Table of sales data-->
 		<div class="page">
 							
-					<a href="login.html"><button class="topbutton signout fa fa-lock"> Sign Out</button></a>
-					<a href="settings.html"><button class="topbutton settings fa fa-gear"> Settings</button></a> 				
+			<?php 
+				include 'reuseable_fragments/toolbar.php';
+			?>			
 			
 			<h1>Peoples Health Pharmacy Settings</h1>
 
