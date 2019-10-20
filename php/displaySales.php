@@ -10,7 +10,15 @@ function showColumns($row_sale)
 	<td>$' . $row_sale['Price'] .'</td>
 	<td>' . $row_sale['Quantity_Sold'] .'</td>
 	<td>' . $row_sale['Date_Sold'] .'</td>
-	<td>' . $row_sale['Discount'] . '% </td> </tr>';
+	<td>' . $row_sale['Discount'] . '% </td>
+	<td>' ;
+	if ($row_sale['Percent_Change'] > 0)
+	{
+		echo '+';
+	}
+	echo $row_sale['Percent_Change'] .'% </td>
+	</tr>';
+	
 	
 }
 
@@ -21,7 +29,8 @@ function getRowAsCSV($row_sale){
 			',' . $row_sale['Price'] .
 			',' . $row_sale['Quantity_Sold'] .
 			',' . $row_sale['Date_Sold'] .
-			',' . $row_sale['Discount'];
+			',' . $row_sale['Discount'] .
+			',' . $row_sale['Percent_Change'] ;
 }
 
 function getColumns()
@@ -38,7 +47,8 @@ function getColumns()
         <td> N/A </td>
         <td> N/A </td>
         <td> N/A </td>
-        <td> N/A </td>
+		<td> N/A </td>
+		<td> N/A </td>
     </tr>';
 	
 
@@ -48,16 +58,17 @@ function getColumns()
     }
     else 
 	{
-		echo "connection succeeded </br>";
-        $sale_query = mysqli_query($db_connection, "SELECT sales.Sale_ID, sales.Item_ID, items.Product_Name, sales.Quantity_Sold, sales.Date_Sold, items.Price, sales.Discount 
-        FROM sales, items 
-        WHERE items.Item_ID = sales.Item_ID
-        ORDER BY Date_Sold;");
-
+		generatePrediction();
+        $sale_query = mysqli_query($db_connection, "SELECT sales.Sale_ID, sales.Item_ID, items.Product_Name, 
+		sales.Quantity_Sold, sales.Date_Sold, items.Price, sales.Discount, prediction.Percent_Change
+        FROM sales, items, prediction
+        WHERE items.Item_ID = sales.Item_ID AND prediction.Item_ID = items.Item_ID
+		ORDER BY Date_Sold;");
+		
 
         if (mysqli_num_rows($sale_query) == 0) 
         {
-			echo "no results"; 
+ 
             echo $failed_row;
         }
         else
@@ -103,22 +114,21 @@ function getColumns()
 					while ($row_sale = mysqli_fetch_assoc($sale_query))
 					{				
 						$Date = ($row_sale['Date_Sold']);
-					//	if ($Date > $FirstDay && $Date < $LastDay)
-					//	{
+						if ($Date > $FirstDay && $Date < $LastDay)
+					
 							showColumns($row_sale);
 							$csvData .= getRowAsCSV($row_sale);
-					//	}			
+						}			
 					}
 				}
 				
 			}
 			
-			
-			
-        }
+		}
+		return $csvData;
 	}
 	
-	return $csvData;
-}
+
+
 
 ?>

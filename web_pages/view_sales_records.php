@@ -34,6 +34,7 @@
                               <th>Quantity Sold</th>
                               <th>Date Sold</th>
                               <th>Discount</th>
+                              <th>Predicted Sales</th>
                               <!--Do not remove! This is for lining up the tables -->
                               <th class = "spacing" ></th>
                          </tr>
