@@ -55,7 +55,8 @@ article
 table 
 {
 	background-color: #fff;
-	table-layout: fixed;
+	border-collapse: collapse;
+	table-layout: fixed;	
 }
 
 th, td 
@@ -82,7 +83,7 @@ td
 th, td
 {
 	text-align: center;
-	width: 160px;
+	width: 48px;
 }
 
 .table-body
@@ -114,17 +115,6 @@ tr:nth-child(even)
 }
 
 
-/*I used two tables to make scrolling work, 
-one for the header and one for the body.
-in order for them to line up I made an extra cell that is transparent
-the same size as the scrollbar.
-*/
-.spacing
-{
-	width: 12px;
-	padding: 0px;
-	opacity: 0;
-}
 
 /*button*/
 
@@ -149,13 +139,27 @@ the same size as the scrollbar.
 	margin-left: 10px;
 }
 
-button > a
+a
 {
 	text-decoration: none;
 	color: inherit;
 }
 
-input[type=text], input[type=date], input[type=password], select {
+.Cancel {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	background-color: rgba(235,239,242,1);
+	color: #6c7ae0;
+}
+
+
+
+input[type=text], input[type=date], input[type=password], select{
 	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0;
@@ -219,3 +223,10 @@ tbody > tr:hover
 {
 	background-color: rgba(219,231,255,1);
 }
+
+th:last-child
+{
+	width: 30px;
+	padding-right: 5px;
+}
+

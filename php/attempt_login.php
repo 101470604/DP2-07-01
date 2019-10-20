@@ -22,7 +22,7 @@
     $username =  mysqli_escape_string($dbConnection, $_POST["username"]);
     $password =  mysqli_escape_string($dbConnection, $_POST["password"]);
     
-    $query = "SELECT `Password` FROM `userauth` WHERE Username = '$username'";
+    $query = "SELECT `Password` FROM `USERAUTH` WHERE Username = '$username'";
     $result = mysqli_query($dbConnection, $query);
     
     if($result){

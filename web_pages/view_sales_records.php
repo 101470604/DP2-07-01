@@ -3,26 +3,28 @@
 	if (!isset($_SESSION["loggedIn"]) || !$_SESSION["loggedIn"]){
 		header ("location: login.php");
 	}
+	include "../php/displaySales.php";
 ?>
 
 <html>  
 <head>  
-     <meta charset="UTF-8">
-     <title>Peoples Health Pharmacy</title>  
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
-     <link href = "../styles/layout.css" rel="stylesheet"/>
-     <link rel="icon" href="phpico.png">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>            
-     <script src="../libraries/jquery_tabledit/jquery.tabledit.min.js"></script>           
-     <script src="../javascript/download.js"></script>
+	<meta charset="UTF-8">
+	<title>Peoples Health Pharmacy</title>  
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+	<link href = "../styles/layout.css" rel="stylesheet"/>
+	<link rel="icon" href="phpico.png">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>            
+	<script src="../libraries/jquery_tabledit/jquery.tabledit.min.js"></script>           
+	<script src="../javascript/download.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+	<link href = "styles/layout.css" rel="stylesheet"/>
 </head>  
 <body>  
      <div class="page">  
           <?php 
 			include "reuseable_fragments/table_title.php"
-		?>
-
+	  ?>
           <div class="table-responsive">    
                <table id="editable_table" class="table">
                     <thead class=table-head >
@@ -34,14 +36,16 @@
                               <th>Quantity Sold</th>
                               <th>Date Sold</th>
                               <th>Discount</th>
+<<<<<<< HEAD
                               <th>Predicted Sales</th>
                               <!--Do not remove! This is for lining up the tables -->
                               <th class = "spacing" ></th>
+=======
+>>>>>>> 1d8d103ff4eef5fe8a16aa0bf36b3558295966d5
                          </tr>
                     </thead>
                     <tbody class="table-body">
                          <?php
-                              include "../php/displaySales.php";
                               $csvData = getColumns();
                          ?>
                     </tbody>
@@ -49,11 +53,10 @@
                <div style='display:none' id="tableCSV"><?php echo $csvData ?></div>
           </div>  
           <div class="buttons">
-			<button id="downloadCSVbtn" class="bottombutton download fa fa-cloud-download"> Download CSV</button>
-			<button id="uploadCSVbtn" class="bottombutton download fa fa-cloud-upload"> Upload CSV</button>
+			<a id="downloadCSVbtn"><button class="bottombutton download fa fa-cloud-download"> Download CSV</button> </a>
 			<a href="data_entry_form.php"><button class="bottombutton addData fa fa-book">  Add Data</button> </a>
-		</div>
-     </div>  
+          </div>
+</div>
 </body>  
 </html>  
 <script>  
@@ -80,13 +83,11 @@
                }
           });
 
-          $('#downloadCSVbtn').click(()=>{
-               var text = $("#tableCSV").text();
-               var viewType = document.cookie.replace(/(?:(?:^|.*;\s*)View\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-               var filename = `${viewType}SalesData.csv`;
-               download(filename, text);
-          })
-          
+          var text = $("#tableCSV").text();
+          var viewType = document.cookie.replace(/(?:(?:^|.*;\s*)View\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+          var filename = `${viewType}SalesData.csv`;
+          $('#downloadCSVbtn').attr('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
+                              .attr('download', filename);
      });  
 </script>
 
