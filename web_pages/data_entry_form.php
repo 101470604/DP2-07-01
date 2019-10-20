@@ -27,9 +27,13 @@
 			?>
 			
 			<h1>Peoples Health Pharmacy Data Entry</h1>
-		
+			<?php
+				if (isset($_SESSION["dataUploadFailed"]) && $_SESSION["dataUploadFailed"]) {
+					echo "<p style='color:red'>".$_SESSION['dataUploadFailed']."</p>";
+				}
+			?>
 			<!-- form -->
-			<form method="post" action="../php/submit_data.php">
+			<form method="post" action="../php/upload_data.php">
 				<label for="item_id">Item ID</label>
 				<input type="text" id="item_id" name="item_id" placeholder="Enter the item ID.." pattern="[0-9]{1, 11}" required>
 
@@ -40,11 +44,12 @@
 				<input type="date" id="date_sold" name="date_sold" placeholder="Enter enter the date of sale.." required>
 
 				<label for="discount">Discount Applied</label>
-				<input type="text" id="discount" name="discount" placeholder="Enter enter any applied discount (0 is a valid answer).." pattern="[0-9]{0, 5}" required>	
+				<input type="text" id="discount" name="discount" placeholder="Enter enter any applied discount (0 is a valid value).." pattern="[0-9]{0, 5}" required>	
 			
+
 				<div class="buttons">						
-					<a href="view_sales_records.php"><button class="bottombutton Cancel fa fa-chevron-left"> Cancel</button></a>
-					<input type="submit" class="bottombutton button enterData fa fa-plus" value="&#xf067;  Enter Data">
+					<a href="view_sales_records.php" class="bottombutton button Cancel fa fa-chevron-left"> Cancel</a>
+					<input type="submit" class="bottombutton button addData fa fa-plus" value="&#xf067;  Enter Data">
 				</div>
 
 			</form>
