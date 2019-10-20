@@ -26,11 +26,8 @@ if($input["action"] === 'edit')
 }
 if($input["action"] === 'delete')
 {
- $query = "
- DELETE FROM tbl_user 
- WHERE id = '".$input["id"]."'
- ";
- mysqli_query($connect, $query);
+   $query = "DELETE FROM sales WHERE Sale_ID = " . mysqli_real_escape_string($connect, $input["Sale_ID"]) . ";";
+   mysqli_query($connect, $query);
 }
 
 echo json_encode($input);

@@ -73,7 +73,7 @@
                {
                     if(data.action == 'delete')
                     {
-                         $('#'+data.id).remove();
+                         $('#'+data.Sale_ID).remove();
                     }
                     location.reload();
                }
