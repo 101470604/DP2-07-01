@@ -36,12 +36,9 @@
                               <th>Quantity Sold</th>
                               <th>Date Sold</th>
                               <th>Discount</th>
-<<<<<<< HEAD
                               <th>Predicted Sales</th>
                               <!--Do not remove! This is for lining up the tables -->
                               <th class = "spacing" ></th>
-=======
->>>>>>> 1d8d103ff4eef5fe8a16aa0bf36b3558295966d5
                          </tr>
                     </thead>
                     <tbody class="table-body">

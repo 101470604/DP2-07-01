@@ -61,10 +61,10 @@ function getColumns()
     else 
 	{
 		generatePrediction();
-        $sale_query = mysqli_query($db_connection, "SELECT sales.Sale_ID, sales.Item_ID, items.Product_Name, 
-		sales.Quantity_Sold, sales.Date_Sold, items.Price, sales.Discount, prediction.Percent_Change
-        FROM sales, items, prediction
-        WHERE items.Item_ID = sales.Item_ID AND prediction.Item_ID = items.Item_ID
+        $sale_query = mysqli_query($db_connection, "SELECT SALES.Sale_ID, SALES.Item_ID, ITEMS.Product_Name, 
+		SALES.Quantity_Sold, SALES.Date_Sold, ITEMS.Price, SALES.Discount, PREDICTION.Percent_Change
+        FROM SALES, ITEMS, PREDICTION
+        WHERE ITEMS.Item_ID = SALES.Item_ID AND PREDICTION.Item_ID = ITEMS.Item_ID
 		ORDER BY Date_Sold;");
 		
 

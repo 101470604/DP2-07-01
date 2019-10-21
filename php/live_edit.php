@@ -13,7 +13,7 @@ $Discount = mysqli_real_escape_string($dbConnection, $input["Discount"]);
 if($input["action"] === 'edit')
 {
  $query = "
-    UPDATE `sales`
+    UPDATE `SALES`
     SET Item_ID = '{$Item_ID}', 
     Quantity_Sold = '{$Quantity_Sold}',   
     Date_Sold = '{$Date_Sold}',
@@ -26,7 +26,7 @@ if($input["action"] === 'edit')
 }
 if($input["action"] === 'delete')
 {
-   $query = "DELETE FROM `sales` WHERE Sale_ID = " . mysqli_real_escape_string($dbConnection, $input["Sale_ID"]) . ";";
+   $query = "DELETE FROM `SALES` WHERE Sale_ID = " . mysqli_real_escape_string($dbConnection, $input["Sale_ID"]) . ";";
    mysqli_query($dbConnection, $query);
 }
 

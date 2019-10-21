@@ -11,15 +11,15 @@ $date_sold = mysqli_escape_string($dbConnection, $_POST["date_sold"]);
 $discount  = mysqli_escape_string($dbConnection, $_POST["discount"]);
 
 if($dbConnection){
-    $query = "SELECT * FROM `items` WHERE Item_ID = {$item_id}";
+    $query = "SELECT * FROM `ITEMS` WHERE Item_ID = {$item_id}";
         echo $query."<br>";
     $result = mysqli_query($dbConnection, $query);
     if (mysqli_num_rows($result) != 0) {
-        $insertQuery = "INSERT INTO `sales` (Item_ID, Quantity_Sold, Date_Sold, Discount)
+        $insertQuery = "INSERT INTO `SALES` (Item_ID, Quantity_Sold, Date_Sold, Discount)
                         VALUES ('{$item_id}', '{$no_sold}', '{$date_sold}', '{$discount}');";
         echo $insertQuery;
         mysqli_query($dbConnection, $insertQuery);
-        header ('location: ../web_pages/view_sales_records.php');
+        header ('location: ../web_pages/view_SALES_records.php');
     }
     else
     {
